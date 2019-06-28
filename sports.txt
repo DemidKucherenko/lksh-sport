@@ -1,1 +1,1 @@
-Футбол 60 team football.txt
+Футбол 60 TEAM football.txt

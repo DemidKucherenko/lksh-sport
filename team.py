@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Team(object):
     def __init__(self, name, sport):
         self.name = name
