@@ -1,1 +1,2 @@
 Футбол 60 TEAM football.txt
+Баскетбол 15 TEAM basketball.txt

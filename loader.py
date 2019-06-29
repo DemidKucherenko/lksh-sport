@@ -31,10 +31,9 @@ def load_sports():
 
 def find_player(players, name, info):
     for player in players:
-        # print(player.name, name, player.name == name)
         if player.name == name:
             return player
-    assert False, "Can't find player " + info
+    assert False, "Can't find player " + name + " from " + info
 
 
 def register_player_in_team(player, team):
@@ -47,6 +46,7 @@ def load_teams_from_file(sport):
     status = True
     line_number = 0
     for line in f:
+        line = line.strip()
         line_number += 1
         if line.strip() == "":
             status = True
@@ -84,8 +84,7 @@ def load_data():
     load_sports()
 
     for sport in sports:
-        if sport.filename.find("team"):
-            load_teams_from_file(sport)
+        load_teams_from_file(sport)
 
     return (players, sports, teams)
 

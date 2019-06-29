@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from utils import convert_to_time
+
 class Event(object):
     def __init__(self, time, sport, team1, team2):
         self.start_time = time
@@ -12,7 +14,9 @@ class Event(object):
             self.players.append(player2)
             player2.add_event_for_player(self)
 
+    def str(self):
+        return "[" + convert_to_time(self.start_time) + " " + self.sport.name + "]"
 
 
 def is_intersecting(event1, event2):
-    return (event1.start_time >= event2.start_time + event2.sport.time) or (event2.start_time >= event1.start_time + event1.sport.time)
+    return (event1.start_time <= event2.start_time + event2.sport.time) or (event2.start_time <= event1.start_time + event1.sport.time)

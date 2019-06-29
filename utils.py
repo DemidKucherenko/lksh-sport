@@ -1,8 +1,19 @@
 # -*- coding: utf-8 -*-
 def convert_start_time(str):
     assert len(str) == 5
+    assert '0' <= str[0] <= '2'
+    assert '0' <= str[1] <= '9'
+    if str[0] == '2':
+        assert '0' <= str[1] <= '3'
+    assert '0' <= str[3] <= '5'
+    assert '0' <= str[4] <= '9'
     return 60 * int(str[0:2]) + int(str[3:])
 
+
+def convert_to_time(time):
+    h = str(time // 60) if (time >= 600) else "0" + str(time // 60)
+    m = str(time % 60) if (time % 60 >= 10) else "0" + str(time % 60)
+    return h + ":" + m
 
 # def transliterate(name):
 #     dictionary = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e',
