@@ -14,7 +14,7 @@ name2sport = {}
 
 
 def load_players():
-    f = open('players.txt', encoding='utf-8')
+    f = open('configs/players.txt', encoding='utf-8')
     cnt = 1
     for name in f:
         name = remove_bad_symbol(name)
@@ -23,7 +23,7 @@ def load_players():
 
 
 def load_sports():
-    f = open('sports.txt', encoding='utf-8')
+    f = open('configs/sports.txt', encoding='utf-8')
     for sport in f:
         s = sport.split()
         sports.append(Sport(s[0], int(s[1]), s[2], s[3]))
@@ -43,7 +43,7 @@ def register_player_in_team(player, team):
 
 
 def load_teams_from_file(sport):
-    f = open(sport.filename, encoding='utf-8')
+    f = open("configs/" + sport.filename, encoding='utf-8')
     status = True
     line_number = 0
     for line in f:
@@ -63,7 +63,7 @@ def load_teams_from_file(sport):
 
 
 def load_current_schedule():
-    f = open('schedule.txt', encoding='utf-8')
+    f = open('configs/schedule.txt', encoding='utf-8')
     first_line = True
     sport = None
     for line in f:
@@ -91,6 +91,6 @@ def load_data():
     return (players, sports, teams)
 
 
-def check_schedule():
+def load_schedule():
     load_current_schedule()
     return events
