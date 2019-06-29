@@ -20,4 +20,5 @@ class Event(object):
 
 
 def is_intersecting(event1, event2):
-    return (event1.start_time <= event2.start_time + event2.sport.time) and (event2.start_time <= event1.start_time + event1.sport.time)
+    return (event1.start_time < event2.start_time + event2.sport.time) and (event2.start_time < event1.start_time
+                                                                            + event1.sport.time)
