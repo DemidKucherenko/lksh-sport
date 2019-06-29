@@ -15,6 +15,11 @@ def convert_to_time(time):
     m = str(time % 60) if (time % 60 >= 10) else "0" + str(time % 60)
     return h + ":" + m
 
+
+def remove_bad_symbol(name):
+    return name.replace('ё', 'е')
+
+
 # def transliterate(name):
 #     dictionary = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e',
 #               'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'i', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',

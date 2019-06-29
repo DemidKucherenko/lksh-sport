@@ -17,6 +17,7 @@ def load_players():
     f = open('players.txt', encoding='utf-8')
     cnt = 1
     for name in f:
+        name = remove_bad_symbol(name)
         players.append(Player(name.strip(), cnt))
         cnt += 1
 
@@ -56,7 +57,8 @@ def load_teams_from_file(sport):
             sport.register_team(teams[len(teams) - 1])
             status = False
         else:
-            player = find_player(players, line.strip(), "file " + sport.filename + " line " + str(line_number))
+            name = remove_bad_symbol(line.strip())
+            player = find_player(players, name, "file " + sport.filename + " line " + str(line_number))
             register_player_in_team(player, teams[len(teams) - 1])
 
 
