@@ -1,4 +1,13 @@
 # -*- coding: utf-8 -*-
+def is_time(str):
+    if (len(str) != 5) or (str[0] not in ['0', '1', '2']) or \
+            (not str[1].isdigit()) or (str[3] not in ['0', '1', '2', '3', '4', '5']) or (not str[4].isdigit()):
+        return False
+    if str[0] == 2:
+        return str[1] in ['0', '1', '2', '3']
+    return True
+
+
 def convert_start_time(str):
     assert len(str) == 5
     assert '0' <= str[0] <= '2'
@@ -18,6 +27,13 @@ def convert_to_time(time):
 
 def remove_bad_symbol(name):
     return name.replace('ё', 'е')
+
+
+def is_sport_name(str, sports):
+    for sport in sports:
+        if sport.name == str:
+            return True
+    return False
 
 
 # def transliterate(name):
