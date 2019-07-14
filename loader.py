@@ -97,7 +97,7 @@ def load_current_schedule():
         assert sport.type == SportType.TEAM
 
         st = line[5:].split("-")
-        assert (len(st) == 2)
+        assert (len(st) == 2), str(line_number)
         st[0] = st[0].strip()
         st[1] = st[1].strip()
         start_time = convert_start_time(line[0:5])
@@ -122,7 +122,7 @@ def load_data():
         else:
             assert False, sport.type
 
-    return (players, sports, teams)
+    return players, sports, teams
 
 
 def load_schedule():

@@ -1,26 +1,27 @@
 from event import *
 
 
-def check_two_events(event1, event2, error_level):
+def check_two_events(event1, event2):
     if not is_intersecting(event1, event2):
-        return True
+        return []
+    errors = []
     for player1 in event1.players:
         for player2 in event2.players:
             if player1 is player2:
-                if error_level:
-                    assert False, "player " + player1.name + " in two games " + event1.str() + " " + event2.str()
-                return False
-    return True
+                errors.append("player " + player1.name + " in two games " + event1.str() + " " + event2.str())
+
+    return errors
 
 
-def check_events(events, error_level):
+def check_events(events):
+    errors = []
     for event1 in events:
         for event2 in events:
             if event1 is event2:
                 continue
-            if not check_two_events(event1, event2, error_level):
-                return False
-    return True
+            lis = check_two_events(event1, event2)
+            errors.extend(lis)
+    return errors
 
 
 def check_playground(events, error_level):
@@ -43,5 +44,5 @@ def check_all_playground(sports, events, error_level):
         sport2events[sport] = []
     for event in events:
         sport2events[event.sport].append(event)
-    for sport in sports:
-        check_playground(sport2events[sport], error_level)
+    # for sport in sports:
+    #     check_playground(sport2events[sport], error_level)

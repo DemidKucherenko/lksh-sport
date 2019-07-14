@@ -1,3 +1,5 @@
-Футбол 60 TEAM football.txt
-Баскетбол 15 TEAM basketball.txt
+Футбол 120 TEAM football.txt
+Баскетбол 120 TEAM basketball.txt
 Покер 120 TABLE
+Волейбол 45 TEAM volley.txt
+Кикер 20 TEAM kiker.txt
