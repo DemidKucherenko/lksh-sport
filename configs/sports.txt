@@ -3,3 +3,4 @@
 Покер 120 TABLE
 Волейбол 45 TEAM volley.txt
 Кикер 20 TEAM kiker.txt
+Шляпа 60 TABLE
